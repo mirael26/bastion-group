@@ -1,0 +1,85 @@
+// elements
+
+@mixin button {
+  @include button-text;
+  padding: 12px 33px;
+  color: white;
+  background-color: $red;
+  border-radius: 4px;
+}
+
+@mixin input {
+  @include input-text;
+  padding: 12px 20px;
+  background: #fff;
+  border: 1px solid #E6E6E6;
+  border-radius: 4px;
+}
+
+// text
+
+@mixin nav-text {
+  font-family: 'Fira Sans', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.009em;
+  color: #000;
+}
+
+@mixin phone-text {
+  font-family: 'Fira Sans', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 1px;
+  color: #000;
+}
+
+@mixin button-text {
+  font-family: 'Fira Sans', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.009em;
+  color: #fff;
+}
+
+@mixin input-text {
+  @include text;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+@mixin placeholder-text {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.009em;
+  color: $grey;
+}
+
+@mixin text {
+  font-family: 'Fira Sans', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.009em;
+  color: #000;
+}
+
+@mixin strong-text {
+  font-family: 'Fira Sans', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.009em;
+  color: #000;
+}

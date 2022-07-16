@@ -1,9 +1,12 @@
 import * as React from "react";
 
+import Header from "../header/header";
+
 const HomePage = ():JSX.Element => {
   return (
     <>
-      <h1>Главная</h1>
+      <h1 className="visually-hidden">Главная</h1>
+      <Header />
     </>
   );
 };
