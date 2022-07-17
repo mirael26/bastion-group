@@ -1,17 +1,30 @@
 import * as React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-import CartPage from "../cart-page/cart-page";
-import HomePage from "../home-page/home-page";
+import Header from "../header/header";
+import Catalog from "../catalog/catalog";
+import Cart from "../cart/cart";
+import NewProduct from "../new-product/new-product";
+import NewProductType from "../new-product-type/new-product-type";
+import Footer from "../footer/footer";
 
 const App = ():JSX.Element => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<HomePage />}/>
-        <Route path='/cart' element={<CartPage />} />
-      </Routes>
-   </BrowserRouter>
+    <>
+      <Header />
+
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Navigate replace to='/catalog' />}/>
+          <Route path='/catalog' element={<Catalog />}/>
+          <Route path='/cart' element={<Cart />} />
+          <Route path='/new-product' element={<NewProduct />} />
+          <Route path='/new-product-type' element={<NewProductType />} />
+        </Routes>
+      </BrowserRouter>
+      
+      <Footer />
+   </>
   );
 };
 
