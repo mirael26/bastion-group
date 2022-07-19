@@ -122,3 +122,23 @@
   line-height: 10px;
   letter-spacing: 0.009em;
 }
+
+@mixin product-title-text {
+  font-family: 'Fira Sans', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.009em;
+  color: #000000;
+}
+
+@mixin price-text {
+  font-family: 'Fira Sans', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.009em;
+  color: #000;
+}
