@@ -1,13 +1,14 @@
 .products-table {
   display: flex;
-
 }
 
 .products-table__menu {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   width: 270px;
   background-color: #fff;
+  border: 1px solid $bg-grey;
 }
 
 .products-table__content {
