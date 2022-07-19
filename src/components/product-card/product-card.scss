@@ -1,12 +1,24 @@
 .product-card {
   position: relative;
+  width: 280px;
+}
+
+.product-card__wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 280px;
   padding: 50px 20px 30px;
+  background-color: #fff;
   border-right: 1px solid $bg-grey;
   border-bottom: 1px solid $bg-grey;
+
+  &:hover {
+    position: absolute;
+    box-shadow: 0px 12px 12px 4px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+  }
 }
 
 .product-card__tags {
@@ -15,6 +27,36 @@
   left: 20px;
   display: flex;
   gap: 5px;
+
+  .product-card__wrapper:hover & {
+    flex-direction: column;
+    align-items: start;
+    gap: 15px;
+  }
+}
+
+.product-cart__favorite-button {
+  @include strong-text;
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding-left: 19px;
+  color: $grey;
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 13px;
+    height: 13px;
+    background: url('../../img/favorite-icon-grey.svg') center no-repeat;
+  }
+
+  .product-card__wrapper:hover & {
+    display: block;
+  }
 }
 
 .product-card__tag {
@@ -71,6 +113,79 @@
   margin: 0 0 9px;
 }
 
+.product-card__purchase-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 240px;
+  margin-bottom: 20px;
+}
+
 .product-card__price {
   @include price-text;
+}
+
+.product-card__add-block {
+  display: none;
+  background: #fff;
+  border: 1px solid #E6E6E6;
+  border-radius: 2px;
+
+  .product-card__wrapper:hover & {
+    display: flex;
+  }
+}
+
+.product-card__increment-button,
+.product-card__decrement-button {
+  @include input-text;
+  width: 29px;
+  height: 35px;
+}
+
+.product-card__added-count {
+  @include product-title-text;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 52px;
+  height: 35px;
+  border-right: 1px solid #E6E6E6;
+  border-left: 1px solid #E6E6E6;
+}
+
+.product-card__add-button {
+  @include button;
+  display: none;
+  position: relative;
+  width: 240px;
+  margin-bottom: 15px;
+  padding-left: 98px;
+  text-align: start;
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 13px;
+    left: 67px;
+    width: 16px;
+    height: 16px;
+    background: url('../../img/add-cart-icon.svg') center no-repeat;
+  }
+
+  .product-card__wrapper:hover & {
+    display: block;
+  }
+}
+
+.product-card__details-button {
+  @include button;
+  display: none;
+  width: 240px;
+  color: #000;
+  background-color: #EFEFEF;
+
+  .product-card__wrapper:hover & {
+    display: block;
+  }
 }
