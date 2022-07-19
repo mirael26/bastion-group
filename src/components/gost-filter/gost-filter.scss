@@ -1,0 +1,21 @@
+.gost-filter {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 59px;
+  padding: 17px 15px;
+  border: 1px solid $bg-grey;
+  border-left: none;
+}
+
+.gost-filter__button {
+  @include strong-text;
+  padding: 5px 12px;
+  background: #F9F9F9;
+  border-radius: 4px;
+
+  &.active {
+    color: #fff;
+    background: $red;
+  }
+}
