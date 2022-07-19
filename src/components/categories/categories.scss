@@ -1,0 +1,89 @@
+.categories {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #E6E6E6;
+}
+
+.categories__header {
+  min-height: 20px;
+  padding: 18px 20px 19px;
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.categories__title {
+  @include h3-text;
+  position: relative;
+  padding-left: 24px;
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 2px;
+    left: 0;
+    width: 17px;
+    height: 17px;
+    background: url('../../img/catalog-icon-red.svg') center no-repeat;
+    opacity: 0.5;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: 2px;
+    right: 0;
+    width: 17px;
+    height: 17px;
+    background: url('../../img/accordion-arrow-black.svg') center no-repeat;
+    transform: rotate(180deg);
+  }
+}
+
+.categories__main {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 20px 20px 30px;
+}
+
+.categories__list {
+  margin-bottom: 6px;
+}
+
+.categories__item {
+  margin-bottom: 13px;
+}
+
+.categories__category-series {
+  @include strong-text;
+  color: $grey;
+}
+
+.categories__category-title {
+  @include strong-text;
+}
+
+.categories__category-amount {
+  @include small-text;
+  margin-right: 3px;
+  padding: 2px 5px;
+  color: #fff;
+  background-color: $red;
+  border-radius: 50px;
+}
+
+.categories__show-all-button {
+  @include strong-text;
+  position: relative;
+  padding-right: 15px;
+  color: $red;
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: 2px;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background: url('../../img/accordion-arrow-red.svg') center no-repeat;
+  }
+}

@@ -1,0 +1,72 @@
+.price-filter {
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.price-filter__header {
+  padding: 20px;
+}
+
+.price-filter__title {
+  @include filter-title-text;
+  position: relative;
+  width: 100%;
+  text-align: start;
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: 2px;
+    right: 0;
+    width: 17px;
+    height: 17px;
+    background: url('../../img/accordion-arrow-black.svg') center no-repeat;
+  }
+
+  &.open::after {
+    transform: rotate(180deg);
+  }
+}
+
+.price-filter__main {
+  padding: 0 20px 20px;
+}
+
+.price-filter__inputs-block {
+  display: flex;
+  gap: 13px;
+  margin-bottom: 22px;
+}
+
+.price-filter__input-wrapper {
+  position: relative;
+
+  &::before {
+    @include strong-text;
+    position: absolute;
+    top: 12px;
+    left: 15px;
+  }
+
+  &--from {
+    &::before {
+      content: 'от';
+    }
+  }
+
+  &--to {
+    &::before {
+      content: 'до';
+    }
+  }
+}
+
+.price-filter__input {
+  @include input-text;
+  width: 108px;
+  min-height: 35px;
+  padding: 9px 10px 8px 31px;
+  color: $grey;
+  background: #fff;
+  border: 1px solid #E6E6E6;
+  border-radius: 2px;
+}

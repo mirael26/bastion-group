@@ -18,6 +18,36 @@
 
 // text
 
+@mixin h2-text {
+  font-family: 'Fira Sans', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 36px;
+  letter-spacing: 1px;
+  color: #000;
+}
+
+@mixin h3-text {
+  font-family: 'Fira Sans', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.009em;
+  color: #000000;
+}
+
+@mixin filter-title-text {
+  font-family: 'Fira Sans', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.009em;
+  color: #000;
+}
+
 @mixin nav-text {
   font-family: 'Fira Sans', Arial, Helvetica, sans-serif;
   font-style: normal;
@@ -49,7 +79,7 @@
 }
 
 @mixin input-text {
-  @include text;
+  @include strong-text;
   font-size: 15px;
   line-height: 18px;
 }
@@ -82,4 +112,13 @@
   line-height: 14px;
   letter-spacing: 0.009em;
   color: #000;
+}
+
+@mixin small-text {
+  font-family: 'Fira Sans', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 10px;
+  letter-spacing: 0.009em;
 }

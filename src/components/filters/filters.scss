@@ -1,0 +1,27 @@
+.filters {
+  border: 1px solid #E6E6E6;
+  border-top: none;
+}
+
+.filters__header {
+  min-height: 20px;
+  padding: 18px 20px 19px;  
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.filters__title {
+  @include h3-text;
+  position: relative;
+  padding-left: 24px;
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 2px;
+    left: 0;
+    width: 17px;
+    height: 17px;
+    background: url('../../img/filters-icon.svg') center no-repeat;
+    opacity: 0.5;
+  }
+}

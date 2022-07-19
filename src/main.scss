@@ -5,6 +5,15 @@
 @import './scss/mixins.scss';
 @import './normalize.css';
 
+@import './components/breadcrumbs/breadcrumbs.scss';
+
 @import './components/app/app.scss';
 @import './components/header/header.scss';
 @import './components/footer/footer.scss';
+@import './components/catalog/catalog.scss';
+@import './components/products-table/products-table.scss';
+@import './components/categories/categories.scss';
+@import './components/filters/filters.scss';
+@import './components/price-filter/price-filter.scss';
+@import './components/type-filter/type-filter.scss';
+@import './components/range-picker/range-picker.scss';

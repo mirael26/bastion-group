@@ -1,0 +1,51 @@
+.range-picker {
+  position: relative;
+  padding-top: 5px;
+
+}
+
+.range-picker__min-point,
+.range-picker__max-point {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 13px;
+  height: 13px;
+  background-color: $red;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px #fff;
+  z-index: 1;
+}
+
+.range-picker__scale {
+  position: relative;
+  width: 228px;
+  height: 3px;
+  margin-bottom: 4px;
+  background-color: $bg-grey;
+}
+
+.range-picker__scale-highlight {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  width: 100px;
+  height: 3px;
+  background-color: $red;
+}
+
+.range-picker__scale-stripes {
+  display: flex;
+  align-items: start;
+}
+
+.range-picker__scale-stripe {
+  width: 1px;
+  height: 5px;
+  margin-left: 28px;
+  background-color: $bg-grey;
+
+  &:nth-child(even) {
+    height: 8px;
+  }
+}

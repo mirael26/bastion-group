@@ -1,0 +1,33 @@
+.breadcrumbs__list {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbs__item {
+  position: relative;
+
+  &:not(:last-child) {
+    margin-right: 12px;
+    padding-right: 19px;
+
+    &::after {
+      position: absolute;
+      content: "";
+      top: 8px;
+      right: 0;
+      width: 6px;
+      height: 6px;
+      background: url('../../img/breadcrumbs-arrow.svg') no-repeat center;
+    }
+  }
+}
+
+.breadcrumbs__link {
+  @include text;
+  color: $grey;
+
+  .breadcrumbs__item:last-child & {
+    font-weight: 500;
+    color: #000;
+  }
+}

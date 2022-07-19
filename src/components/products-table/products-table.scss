@@ -1,0 +1,17 @@
+.products-table {
+  display: flex;
+
+}
+
+.products-table__menu {
+  display: flex;
+  flex-direction: column;
+  width: 270px;
+  background-color: #fff;
+}
+
+.products-table__content {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
