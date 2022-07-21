@@ -1,13 +1,17 @@
 import * as React from "react";
 
-import { productsMocks } from "../../mocks";
+import { Products } from "../../types";
 
 import ProductCard from "../product-card/product-card";
 
-const ProductCards = (): JSX.Element => {
+interface ProductCardsProps {
+  products: Products,
+}
+
+const ProductCards = ({products}: ProductCardsProps): JSX.Element => {
   return (
     <div className="product-cards">
-      {productsMocks.map((product, i) => <ProductCard key={i} product={product} />)}
+      {products.map((product, i) => <ProductCard key={i} product={product} />)}
     </div>
   );
 };

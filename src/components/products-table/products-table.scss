@@ -2,6 +2,17 @@
   display: flex;
 }
 
+.products-table__no-products-message {
+  @include h3-text;
+  display: block;
+  width: 100%;
+  padding: 40px;
+  font-size: 21px;
+  line-height: 34px;
+  text-align: center;
+  background-color: #fff;
+}
+
 .products-table__menu {
   display: flex;
   flex-direction: column;
