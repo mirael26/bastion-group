@@ -27,8 +27,8 @@ const RangePicker = (props: RangePickerProps): JSX.Element => {
 
   useEffect(() => {
     const total = scale.current.clientWidth - minPoint.current.clientWidth;
-    const minPosition = (currentMinValue / (maxValue - minValue)) * total;
-    const maxPosition = (currentMaxValue / (maxValue - minValue)) * total;
+    const minPosition = ((currentMinValue - minValue) / (maxValue - minValue)) * total;
+    const maxPosition = ((currentMaxValue - minValue) / (maxValue - minValue)) * total;
     minPoint.current.style.left = `${minPosition}px`;
     maxPoint.current.style.left = `${maxPosition}px`;
     highlight.current.style.left = `${minPosition}px`;

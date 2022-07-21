@@ -10,8 +10,68 @@ interface PriceFilterProps {
 
 const PriceFilter = ({minValue, maxValue}: PriceFilterProps): JSX.Element => {
   const [isOpen, setOpen] = useState(true);
-  const [currentMinValue, setCurrentMinValue] = useState(null);
-  const [currentMaxValue, setCurrentMaxValue] = useState(null);
+  const [currentMinValue, setCurrentMinValue] = useState(minValue);
+  const [currentMaxValue, setCurrentMaxValue] = useState(maxValue);
+  const [temporaryMinValue, setTemporaryMinValue] = useState(null);
+  const [temporaryMaxValue, setTemporaryMaxValue] = useState(null);
+
+  const onInputChange = (evt: React.SyntheticEvent) => {
+    const input = evt.target as HTMLInputElement;
+
+    if (input.name === 'min-price-input') {
+      setTemporaryMinValue(+input.value);
+    }
+
+    if (input.name === 'max-price-input') {
+      setTemporaryMaxValue(+input.value);
+    }
+
+    const onInputBlur = () => {
+
+      if (input.name === 'min-price-input') {
+        if (+input.value <= minValue) {
+          setCurrentMinValue(minValue);
+          setTemporaryMinValue(null);
+          return;
+        }
+        if (+input.value > currentMaxValue) {
+          setCurrentMinValue(currentMaxValue);
+          setTemporaryMinValue(null);
+          return;
+        }
+        setCurrentMinValue(+input.value);
+        setTemporaryMinValue(null);
+      }
+
+      if (input.name === 'max-price-input') {
+        if (+input.value >= maxValue) {
+          setCurrentMaxValue(maxValue);
+          setTemporaryMaxValue(null);
+          return;
+        }
+        if (+input.value < currentMinValue) {
+          setCurrentMaxValue(currentMinValue);
+          setTemporaryMaxValue(null);
+          return;
+        }
+        setCurrentMaxValue(+input.value);
+      }
+      
+      input.removeEventListener('blur', onInputBlur);
+      input.removeEventListener('keydown', onInputEnter);
+      input.blur();
+    }
+
+    const onInputEnter = (evt: KeyboardEvent) => {
+      if (evt.key === "Enter") {
+        onInputBlur();
+        input.blur();
+      }
+    }
+
+    input.addEventListener('blur', onInputBlur);    
+    input.addEventListener('keydown', onInputEnter);
+  };
 
   return (
     <div className="price-filter">
@@ -22,10 +82,10 @@ const PriceFilter = ({minValue, maxValue}: PriceFilterProps): JSX.Element => {
         ? <div className="price-filter__main">
           <div className="price-filter__inputs-block">
             <div className="price-filter__input-wrapper price-filter__input-wrapper--from">
-              <input className="price-filter__input" type="text" value={currentMinValue ?? minValue}/>
+              <input className="price-filter__input" type="number" name="min-price-input" value={temporaryMinValue ?? currentMinValue} onChange={onInputChange}/>
             </div>
             <div className="price-filter__input-wrapper price-filter__input-wrapper--to">
-              <input className="price-filter__input" type="text" value={currentMaxValue ?? maxValue}/>
+              <input className="price-filter__input" type="number" name="max-price-input" value={temporaryMaxValue ?? currentMaxValue} onChange={onInputChange}/>
             </div>
           </div>
           <div className="price-filter__range-picker">
@@ -33,7 +93,9 @@ const PriceFilter = ({minValue, maxValue}: PriceFilterProps): JSX.Element => {
               minValue={minValue}
               maxValue={maxValue}
               currentMinValue={currentMinValue}
-              currentMaxValue={currentMaxValue}/>
+              currentMaxValue={currentMaxValue}
+              setCurrentMinValue={setCurrentMinValue}
+              setCurrentMaxValue={setCurrentMaxValue}/>
           </div>
         </div>
         : null
