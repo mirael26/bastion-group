@@ -1,4 +1,4 @@
-import { AddProduct, AddProductToCart, AddProductType, ChangeCount, ChangeCountInCart, Product, RemoveProductFromCart, UpdatePriceFilter, UpdateTypeFilter } from "../types";
+import { AddProduct, AddProductToCart, AddProductType, ChangeCount, ChangeCountInCart, Product, RemoveProductFromCart, UpdateGostFilter, UpdatePriceFilter, UpdateTypeFilter } from "../types";
 
 export const ActionType = {
   ADD_PRODUCT: "ADD_PRODUCT",
@@ -6,6 +6,7 @@ export const ActionType = {
   CHANGE_COUNT: "CHANGE_COUNT",
   UPDATE_PRICE_FILTER: "UPDATE_PRICE_FILTER",
   UPDATE_TYPE_FILTER: "UPDATE_TYPE_FILTER",
+  UPDATE_GOST_FILTER: "UPDATE_GOST_FILTER",
   ADD_PRODUCT_TO_CART: "ADD_PRODUCT_TO_CART",
   REMOVE_PRODUCT_FROM_CART: "REMOVE_PRODUCT_FROM_CART",
   CHANGE_COUNT_IN_CART: "CHANGE_COUNT_IN_CART",
@@ -31,6 +32,10 @@ export const ActionCreator = {
   updateTypeFilter: (types: Array<string>): UpdateTypeFilter => ({
     type: ActionType.UPDATE_TYPE_FILTER,
     payload: types,
+  }),
+  updateGostFilter: (gosts: Array<string>): UpdateGostFilter => ({
+    type: ActionType.UPDATE_GOST_FILTER,
+    payload: gosts,
   }),
   addProductToCart: (product: Product): AddProductToCart => ({
     type: ActionType.ADD_PRODUCT_TO_CART,

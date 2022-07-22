@@ -30,6 +30,7 @@ export interface FilterState {
     max: number
   },
   typeFilter: Array<string>,
+  gostFilter: Array<string>,
 }
 
 export interface CartState {
@@ -63,6 +64,11 @@ export interface UpdateTypeFilter {
   payload: Array<string>,
 }
 
+export interface UpdateGostFilter {
+  type: typeof ActionType.UPDATE_GOST_FILTER,
+  payload: Array<string>,
+}
+
 export interface AddProductToCart {
   type: typeof ActionType.ADD_PRODUCT_TO_CART,
   payload: Product,
@@ -79,6 +85,6 @@ export interface ChangeCountInCart {
 }
 
 export type DataAction = AddProduct | AddProductType | ChangeCount;
-export type FilterAction = UpdatePriceFilter | UpdateTypeFilter;
+export type FilterAction = UpdatePriceFilter | UpdateTypeFilter | UpdateGostFilter;
 export type CartAction = AddProductToCart | RemoveProductFromCart | ChangeCountInCart;
 export type Action = DataAction | FilterAction | CartAction;
