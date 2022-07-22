@@ -3,7 +3,7 @@ import { ActionType } from "../action";
 
 const initialState: FilterState = {
   priceFilter: null,
-  typeFilter: null,
+  typeFilter: [],
 };
 
 export const filterReducer = (state = initialState, action: FilterAction): FilterState => {

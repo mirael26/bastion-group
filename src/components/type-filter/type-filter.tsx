@@ -1,8 +1,35 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 
-const TypeFilter = (): JSX.Element => {
+import { ActionCreator } from "../../store/action";
+
+interface TypeFilterProps {
+  types: Array<string>;
+}
+
+const TypeFilter = ({types}: TypeFilterProps): JSX.Element => {
   const [isOpen, setOpen] = useState(true);
+  const [currentTypes, setCurrentTypes] = useState([]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => dispatch(ActionCreator.updateTypeFilter(currentTypes)), 3000);
+    return () => clearTimeout(timeoutId);
+  }, [currentTypes]);
+
+  const onCheckboxClick = (evt: React.SyntheticEvent) => {
+    const checkbox = evt.target as Element;
+
+    if (checkbox.classList.contains('checked')) {
+      const index = currentTypes.findIndex(el => el === checkbox.textContent);
+      const newTypes = currentTypes.slice();
+      newTypes.splice(index, 1);
+      setCurrentTypes(newTypes);
+    } else {
+      setCurrentTypes([...currentTypes, checkbox.textContent]);
+    }
+  };
 
   return (
     <div className="type-filter">
@@ -12,12 +39,12 @@ const TypeFilter = (): JSX.Element => {
       {isOpen
         ? <div className="type-filter__main">
           <ul className="type-filter__list">
-            <li className="type-filter__item">
-              <button className="type-filter__checkbox checked">Узлы трубопроводов</button>
-            </li>
-            <li className="type-filter__item">
-              <button className="type-filter__checkbox">Детали крепления</button>
-            </li>
+            {types.map((type, i) => {
+              const isChecked = !currentTypes.length ? false : currentTypes.includes(type);
+              return <li key={i} className="type-filter__item">
+                <button className={`type-filter__checkbox${isChecked ? ' checked' : ''}`} onClick={onCheckboxClick}>{type}</button>
+              </li>
+            })}
           </ul>
         </div>
         : null
