@@ -10,24 +10,24 @@ interface TypeFilterProps {
 
 const TypeFilter = ({types}: TypeFilterProps): JSX.Element => {
   const [isOpen, setOpen] = useState(true);
-  const [currentTypes, setCurrentTypes] = useState([]);
+  const [checkedTypes, setCheckedTypes] = useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => dispatch(ActionCreator.updateTypeFilter(currentTypes)), 3000);
+    const timeoutId = setTimeout(() => dispatch(ActionCreator.updateTypeFilter(checkedTypes)), 3000);
     return () => clearTimeout(timeoutId);
-  }, [currentTypes]);
+  }, [checkedTypes]);
 
   const onCheckboxClick = (evt: React.SyntheticEvent) => {
     const checkbox = evt.target as Element;
 
     if (checkbox.classList.contains('checked')) {
-      const index = currentTypes.findIndex(el => el === checkbox.textContent);
-      const newTypes = currentTypes.slice();
+      const index = checkedTypes.findIndex(el => el === checkbox.textContent);
+      const newTypes = checkedTypes.slice();
       newTypes.splice(index, 1);
-      setCurrentTypes(newTypes);
+      setCheckedTypes(newTypes);
     } else {
-      setCurrentTypes([...currentTypes, checkbox.textContent]);
+      setCheckedTypes([...checkedTypes, checkbox.textContent]);
     }
   };
 
@@ -40,7 +40,7 @@ const TypeFilter = ({types}: TypeFilterProps): JSX.Element => {
         ? <div className="type-filter__main">
           <ul className="type-filter__list">
             {types.map((type, i) => {
-              const isChecked = !currentTypes.length ? false : currentTypes.includes(type);
+              const isChecked = !checkedTypes.length ? false : checkedTypes.includes(type);
               return <li key={i} className="type-filter__item">
                 <button className={`type-filter__checkbox${isChecked ? ' checked' : ''}`} onClick={onCheckboxClick}>{type}</button>
               </li>
