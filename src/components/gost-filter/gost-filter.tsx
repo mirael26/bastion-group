@@ -13,7 +13,7 @@ const GostFilter = ({gosts}: GostFilterProps): JSX.Element => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => dispatch(ActionCreator.updateGostFilter(activeGosts)), 2500);
+    const timeoutId = setTimeout(() => dispatch(ActionCreator.updateGostFilter(activeGosts)), 2000);
     return () => clearTimeout(timeoutId);
   }, [activeGosts]);
 

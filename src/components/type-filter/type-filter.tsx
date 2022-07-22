@@ -14,7 +14,7 @@ const TypeFilter = ({types}: TypeFilterProps): JSX.Element => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => dispatch(ActionCreator.updateTypeFilter(checkedTypes)), 3000);
+    const timeoutId = setTimeout(() => dispatch(ActionCreator.updateTypeFilter(checkedTypes)), 2000);
     return () => clearTimeout(timeoutId);
   }, [checkedTypes]);
 
