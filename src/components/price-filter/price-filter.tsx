@@ -1,8 +1,9 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { ActionCreator } from "../../store/action";
+import { RootState } from "../../store/store";
 
 import RangePicker from "../range-picker/range-picker";
 
@@ -17,12 +18,21 @@ const PriceFilter = ({minValue, maxValue}: PriceFilterProps): JSX.Element => {
   const [currentMaxValue, setCurrentMaxValue] = useState(maxValue);
   const [temporaryMinValue, setTemporaryMinValue] = useState(null);
   const [temporaryMaxValue, setTemporaryMaxValue] = useState(null);
+
+  const priceFilter = useSelector((state: RootState) => state.filter.priceFilter);
   const dispatch = useDispatch();
 
   useEffect(() => {
     const timeoutId = setTimeout(() => setPriceFilter(), 2000);
     return () => clearTimeout(timeoutId);
   }, [currentMinValue, currentMaxValue]);
+
+  useEffect(() => {
+    if (priceFilter === null) {
+      setCurrentMinValue(minValue);
+      setCurrentMaxValue(maxValue);
+    }
+  }, [priceFilter]);
 
   const onInputChange = (evt: React.SyntheticEvent) => {
     const input = evt.target as HTMLInputElement;

@@ -1,22 +1,35 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { ActionCreator } from "../../store/action";
+import { RootState } from "../../store/store";
 
 interface TypeFilterProps {
   types: Array<string>;
 }
 
 const TypeFilter = ({types}: TypeFilterProps): JSX.Element => {
-  const [isOpen, setOpen] = useState(true);
+  const [isOpen, setOpen] = useState(false);
   const [checkedTypes, setCheckedTypes] = useState([]);
+
+  const typeFilter = useSelector((state: RootState) => state.filter.typeFilter);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => dispatch(ActionCreator.updateTypeFilter(checkedTypes)), 2000);
+    const timeoutId = setTimeout(() => {
+      if (checkedTypes.length) {
+        dispatch(ActionCreator.updateTypeFilter(checkedTypes));
+      }
+    }, 2000);
     return () => clearTimeout(timeoutId);
   }, [checkedTypes]);
+
+  useEffect(() => {
+    if (typeFilter.length === 0) {
+      setCheckedTypes([]);
+    }
+  }, [typeFilter]);
 
   const onCheckboxClick = (evt: React.SyntheticEvent) => {
     const checkbox = evt.target as Element;
