@@ -17,7 +17,7 @@ export const ActionCreator = {
     type: ActionType.ADD_PRODUCT,
     payload: product,
   }),
-  addProductType: (type: string): AddProductType => ({
+  addProductType: (type: {id: number, name: string}): AddProductType => ({
     type: ActionType.ADD_PRODUCT_TYPE,
     payload: type,
   }),

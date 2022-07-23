@@ -21,7 +21,7 @@ export type Products = Array<Product>;
 
 export interface DataState {
   products: Products,
-  productTypes: Array<string>,
+  productTypes: Array<{id: number, name: string}>,
 };
 
 export interface FilterState {
@@ -46,7 +46,7 @@ export interface AddProduct {
 
 export interface AddProductType {
   type: typeof ActionType.ADD_PRODUCT_TYPE,
-  payload: string,
+  payload: {id: number, name: string},
 }
 
 export interface ChangeCount {

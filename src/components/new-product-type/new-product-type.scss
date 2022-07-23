@@ -1,0 +1,48 @@
+.new-product-type {
+  background-color: $bg-grey;
+}
+
+.new-product-type__wrapper {
+  width: 1110px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.new-product-type__title {
+  @include h2-text;
+  margin-bottom: 20px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.new-product-type__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 600px;
+  margin: 0 auto;
+  padding: 50px;
+  background: white;
+  border-radius: 10px;
+}
+
+.new-product-type__input {
+  @include input;
+  width: 100%;
+
+  &::placeholder {
+    @include placeholder-text;
+  }
+}
+
+.new-product-type__error-message {
+  @include strong-text;
+  margin-top: -7px;
+  margin-left: 10px;
+  color: $red;
+}
+
+.new-product-type__submit-button {
+  @include button;
+  align-self: center;
+}
