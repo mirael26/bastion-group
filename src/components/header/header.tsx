@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 
 const Header = ():JSX.Element => {
   return (
@@ -8,10 +9,10 @@ const Header = ():JSX.Element => {
           <nav className="header__nav">
             <ul className="header__nav-list">
               <li className="header__nav-item">
-                <button className="header__nav-button">Типы продуктов</button>
+                <Link to='/new-product-type' className="header__nav-button">Типы продуктов</Link>
               </li>
               <li className="header__nav-item">
-                <button className="header__nav-button">Продукты</button>
+                <Link to='/new-product' className="header__nav-button">Продукты</Link>
               </li>
             </ul>
           </nav>
@@ -23,12 +24,14 @@ const Header = ():JSX.Element => {
 
       <div className="header__main">
         <div className="header__main-wrapper">
-          <div className="header__logo">
-            <img className="header__logo-image" src={require('../../img/bastion-group-logo.png')} alt="Логотип Bastion group"/>
-            <p className="header__logo-text">Производитель металлических изделий №1</p>
-          </div>
+          <Link to='/'>
+            <div className="header__logo">
+              <img className="header__logo-image" src={require('../../img/bastion-group-logo.png')} alt="Логотип Bastion group"/>
+              <p className="header__logo-text">Производитель металлических изделий №1</p>
+            </div>
+          </Link>
 
-          <button className="header__catalog-button button">Каталог</button>
+          <Link to='/catalog' className="header__catalog-button button">Каталог</Link>
 
           <div className="header__search">
             <input className="header__search-input" type="text" placeholder="Поиск по названию..."/>
