@@ -10,10 +10,11 @@ import Footer from "../footer/footer";
 
 const App = ():JSX.Element => {
   return (
-    <>
-      <Header />
+    <BrowserRouter>
+      <div className="app">
+        <Header />
+        <div className="app__main">
 
-      <BrowserRouter>
         <Routes>
           <Route path='/' element={<Navigate replace to='/catalog' />}/>
           <Route path='/catalog' element={<Catalog />}/>
@@ -21,10 +22,11 @@ const App = ():JSX.Element => {
           <Route path='/new-product' element={<NewProduct />} />
           <Route path='/new-product-type' element={<NewProductType />} />
         </Routes>
-      </BrowserRouter>
-      
-      <Footer />
-   </>
+        
+        </div>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 };
 
