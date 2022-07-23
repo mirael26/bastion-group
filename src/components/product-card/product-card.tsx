@@ -11,15 +11,15 @@ const ProductCard = ({product}: ProductCardProps): JSX.Element => {
     <div className="product-card">
       <div className="product-card__wrapper">
         <div className="product-card__tags">
-          <div className="product-card__tag product-card__tag--hit">Хит</div>
-          <div className="product-card__tag product-card__tag--discount">Скидка</div>
-          <div className="product-card__tag product-card__tag--promotion">Акция</div>
+          {product.hit ? <div className="product-card__tag product-card__tag--hit">Хит</div> : null}
+          {product.discount ? <div className="product-card__tag product-card__tag--discount">Скидка</div> : null}
+          {product.promotion ? <div className="product-card__tag product-card__tag--promotion">Акция</div> : null}
         </div>
 
         <button className="product-cart__favorite-button">В избранное</button>
 
         <div className="product-card__image-wrapper">
-          <img className="product-card__image" src={require(`../../img/${product.image}`)} alt="Изображение товара" />
+          <img className="product-card__image" src={product.image} alt="Изображение товара" />
         </div>
 
         <div className="product-card__gost">{product.gost}</div>
