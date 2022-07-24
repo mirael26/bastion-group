@@ -1,7 +1,9 @@
 import * as React from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import { RegExpTest } from "../../consts";
+import { ActionCreator } from "../../store/action";
 import { ProductsInCart } from "../../types";
 
 const ErrorMessages = {
@@ -19,6 +21,7 @@ interface OrderProps {
 const Order = ({sum, products}: OrderProps): JSX.Element => {
   const [inputsValue, setInputsValue] = useState({username: '', phone: '', email: '', company: ''});
   const [errors, setErrors] = useState({username: null, phone: null, email: null, company: null});
+  const dispatch = useDispatch();
 
   const resetInputs = () => {
     setInputsValue({username: '', phone: '', email: '', company: ''});
@@ -49,6 +52,7 @@ const Order = ({sum, products}: OrderProps): JSX.Element => {
       console.log('Перечень товаров', products);
       console.log('Данные о покупателе', inputsValue);
       resetInputs();
+      dispatch(ActionCreator.clearCart());
     }
   };
 
