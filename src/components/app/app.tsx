@@ -1,5 +1,5 @@
 import * as React from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import Header from "../header/header";
 import Catalog from "../catalog/catalog";
@@ -10,7 +10,7 @@ import Footer from "../footer/footer";
 
 const App = ():JSX.Element => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="app">
         <Header />
         <div className="app__main">
@@ -26,7 +26,7 @@ const App = ():JSX.Element => {
         </div>
         <Footer />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
