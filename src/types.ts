@@ -12,10 +12,14 @@ export interface Product {
   hit?: boolean,
   discount?: boolean,
   promotion?: boolean,
-  countInCart?: number,
+}
+
+export interface ProductInCart extends Product {
+  count: number,
 }
 
 export type Products = Array<Product>;
+export type ProductsInCart = Array<ProductInCart>;
 
 // reducers types
 
@@ -34,7 +38,7 @@ export interface FilterState {
 }
 
 export interface CartState {
-  productsInCart: Array<Product>,
+  productsInCart: ProductsInCart,
 }
 
 // action types
@@ -47,11 +51,6 @@ export interface AddProduct {
 export interface AddProductType {
   type: typeof ActionType.ADD_PRODUCT_TYPE,
   payload: {id: number, name: string},
-}
-
-export interface ChangeCount {
-  type: typeof ActionType.CHANGE_COUNT,
-  payload: {id: number, count: number},
 }
 
 export interface UpdatePriceFilter {
@@ -71,7 +70,7 @@ export interface UpdateGostFilter {
 
 export interface AddProductToCart {
   type: typeof ActionType.ADD_PRODUCT_TO_CART,
-  payload: Product,
+  payload: ProductInCart,
 }
 
 export interface RemoveProductFromCart {
@@ -84,7 +83,7 @@ export interface ChangeCountInCart {
   payload: {id: number, count: number},
 }
 
-export type DataAction = AddProduct | AddProductType | ChangeCount;
+export type DataAction = AddProduct | AddProductType;
 export type FilterAction = UpdatePriceFilter | UpdateTypeFilter | UpdateGostFilter;
 export type CartAction = AddProductToCart | RemoveProductFromCart | ChangeCountInCart;
 export type Action = DataAction | FilterAction | CartAction;

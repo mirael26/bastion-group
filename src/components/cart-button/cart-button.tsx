@@ -7,7 +7,7 @@ const CartButton = (): JSX.Element => {
   const productsInCart = useSelector((state: RootState) => state.cart.productsInCart);
 
   const productsCount = productsInCart.reduce((accumulator, product) => {
-    return accumulator + product.countInCart;
+    return accumulator + product.count;
   }, 0); 
 
   return (

@@ -17,7 +17,7 @@ export const cartReducer = (state = initialState, action: CartAction): CartState
     case ActionType.CHANGE_COUNT_IN_CART:
       const id = state.productsInCart.findIndex(el => el.id === action.payload.id);
       const updProducts = state.productsInCart.slice(); 
-      updProducts[id] = {...state.productsInCart[id], price: action.payload.count};
+      updProducts[id] = {...state.productsInCart[id], count: action.payload.count};
       return {...state, productsInCart: updProducts};
     default:
       return state;

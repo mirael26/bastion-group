@@ -1,9 +1,8 @@
-import { AddProduct, AddProductToCart, AddProductType, ChangeCount, ChangeCountInCart, Product, RemoveProductFromCart, UpdateGostFilter, UpdatePriceFilter, UpdateTypeFilter } from "../types";
+import { AddProduct, AddProductToCart, AddProductType, ChangeCountInCart, Product, ProductInCart, RemoveProductFromCart, UpdateGostFilter, UpdatePriceFilter, UpdateTypeFilter } from "../types";
 
 export const ActionType = {
   ADD_PRODUCT: "ADD_PRODUCT",
   ADD_PRODUCT_TYPE: "ADD_PRODUCT_TYPE",
-  CHANGE_COUNT: "CHANGE_COUNT",
   UPDATE_PRICE_FILTER: "UPDATE_PRICE_FILTER",
   UPDATE_TYPE_FILTER: "UPDATE_TYPE_FILTER",
   UPDATE_GOST_FILTER: "UPDATE_GOST_FILTER",
@@ -21,10 +20,6 @@ export const ActionCreator = {
     type: ActionType.ADD_PRODUCT_TYPE,
     payload: type,
   }),
-  changeCount: (productInfo: {id: number, count: number}): ChangeCount => ({
-    type: ActionType.CHANGE_COUNT,
-    payload: productInfo,
-  }),
   updatePriceFilter: (priceFilter: {min: number, max: number}): UpdatePriceFilter => ({
     type: ActionType.UPDATE_PRICE_FILTER,
     payload: priceFilter,
@@ -37,7 +32,7 @@ export const ActionCreator = {
     type: ActionType.UPDATE_GOST_FILTER,
     payload: gosts,
   }),
-  addProductToCart: (product: Product): AddProductToCart => ({
+  addProductToCart: (product: ProductInCart): AddProductToCart => ({
     type: ActionType.ADD_PRODUCT_TO_CART,
     payload: product,
   }),
