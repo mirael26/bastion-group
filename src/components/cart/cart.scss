@@ -1,0 +1,65 @@
+.cart {
+  background-color: $bg-grey;
+}
+
+.cart__wrapper {
+  width: 1110px;
+  margin: 0 auto;
+  padding: 19px 0 40px;
+}
+
+.cart__breadcrumbs {
+  margin-bottom: 15px;
+}
+
+.cart__title {
+  @include h2-text;
+  margin-bottom: 31px;
+}
+
+.cart__table {
+  display: flex;
+  background-color: #fff;
+  border: 1px solid #E6E6E6;
+}
+
+.cart__no-products-message {
+  @include h3-text;
+  display: block;
+  width: 100%;
+  padding: 80px 0;
+  font-size: 25px;
+  text-align: center;
+}
+
+.cart__products {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-grow: 1;
+  border-right: 1px solid #E6E6E6;
+}
+
+.cart__product-card {
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.cart__clear-cart-button {
+  @include button-text;
+  position: relative;
+  align-self: flex-end;
+  margin: 31px 30px 35px auto;
+  padding-left: 31px;
+  font-weight: 400;
+  color: $red;
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: -1px;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    background: url('../../img/trash-icon.svg') center no-repeat;
+  }
+}

@@ -14,7 +14,6 @@ const Breadcrumbs = (): JSX.Element => {
           <a className="breadcrumbs__link">Опоры трубопроводов</a>
         </li>
       </ul>
-      
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { AddProduct, AddProductToCart, AddProductType, ChangeCountInCart, Product, ProductInCart, RemoveProductFromCart, UpdateGostFilter, UpdatePriceFilter, UpdateTypeFilter } from "../types";
+import { AddProduct, AddProductToCart, AddProductType, ChangeCountInCart, ClearCart, Product, ProductInCart, RemoveProductFromCart, UpdateGostFilter, UpdatePriceFilter, UpdateTypeFilter } from "../types";
 
 export const ActionType = {
   ADD_PRODUCT: "ADD_PRODUCT",
@@ -9,6 +9,7 @@ export const ActionType = {
   ADD_PRODUCT_TO_CART: "ADD_PRODUCT_TO_CART",
   REMOVE_PRODUCT_FROM_CART: "REMOVE_PRODUCT_FROM_CART",
   CHANGE_COUNT_IN_CART: "CHANGE_COUNT_IN_CART",
+  CLEAR_CART: "CLEAR_CART",
 } as const;
 
 export const ActionCreator = {
@@ -43,5 +44,8 @@ export const ActionCreator = {
   changeCountInCart: (productInfo: {id: number, count: number}): ChangeCountInCart => ({
     type: ActionType.CHANGE_COUNT_IN_CART,
     payload: productInfo,
+  }),
+  clearCart: (): ClearCart => ({
+    type: ActionType.CLEAR_CART,
   }),
 };

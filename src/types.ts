@@ -83,7 +83,11 @@ export interface ChangeCountInCart {
   payload: {id: number, count: number},
 }
 
+export interface ClearCart {
+  type: typeof ActionType.CLEAR_CART,
+}
+
 export type DataAction = AddProduct | AddProductType;
 export type FilterAction = UpdatePriceFilter | UpdateTypeFilter | UpdateGostFilter;
-export type CartAction = AddProductToCart | RemoveProductFromCart | ChangeCountInCart;
+export type CartAction = AddProductToCart | RemoveProductFromCart | ChangeCountInCart | ClearCart;
 export type Action = DataAction | FilterAction | CartAction;

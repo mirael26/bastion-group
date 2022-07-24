@@ -1,8 +1,10 @@
 import { CartAction, CartState } from "../../types";
 import { ActionType } from "../action";
 
+import { productsInCartMocks } from "../../mocks";
+
 const initialState: CartState = {
-  productsInCart: [],
+  productsInCart: productsInCartMocks,
 };
 
 export const cartReducer = (state = initialState, action: CartAction): CartState => {
@@ -19,6 +21,8 @@ export const cartReducer = (state = initialState, action: CartAction): CartState
       const updProducts = state.productsInCart.slice(); 
       updProducts[id] = {...state.productsInCart[id], count: action.payload.count};
       return {...state, productsInCart: updProducts};
+    case ActionType.CLEAR_CART:
+      return {...state, productsInCart: []};
     default:
       return state;
   }
