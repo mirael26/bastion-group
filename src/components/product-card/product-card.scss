@@ -141,6 +141,11 @@
   @include input-text;
   width: 29px;
   height: 35px;
+
+  &:disabled {
+    color: $grey;
+    cursor: auto;
+  }
 }
 
 .product-card__added-count {

@@ -1,4 +1,7 @@
 import * as React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { ActionCreator } from "../../store/action";
+import { RootState } from "../../store/store";
 
 import { Product } from "../../types";
 
@@ -7,6 +10,35 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({product}: ProductCardProps): JSX.Element => {
+  const productsInCart = useSelector((state: RootState) => state.cart.productsInCart);
+  const dispatch = useDispatch();
+
+  const incrementCount = () => {
+    if (!count) {
+      dispatch(ActionCreator.addProductToCart({...product, count: 1}));
+    } else {
+      dispatch(ActionCreator.changeCountInCart({id: product.id, count: ++count}));
+    }
+  };
+
+  const decrementCount = () => {
+    if (count === 1) {
+      dispatch(ActionCreator.removeProductFromCart(product.id));
+    } else {
+      dispatch(ActionCreator.changeCountInCart({id: product.id, count: --count}));
+    }
+  };
+
+  const getCount = () => {
+    const index = productsInCart.findIndex(el => el.id === product.id);
+    if (index >= 0) {
+      return productsInCart[index].count;
+    }
+    return null;
+  };
+
+  let count = getCount();
+
   return (
     <div className="product-card">
       <div className="product-card__wrapper">
@@ -29,13 +61,13 @@ const ProductCard = ({product}: ProductCardProps): JSX.Element => {
           <p className="product-card__price">{product.price} руб.</p>
 
           <div className="product-card__add-block">
-            <button className="product-card__increment-button">+</button>
-            <div className="product-card__added-count">3</div>
-            <button className="product-card__decrement-button">-</button>
+            <button className="product-card__increment-button" onClick={incrementCount}>+</button>
+            <div className="product-card__added-count">{count ?? 0}</div>
+            <button className="product-card__decrement-button" disabled={!count} onClick={decrementCount}>-</button>
           </div>
         </div>
 
-        <button className="product-card__add-button">В корзину</button>
+        <button className="product-card__add-button" onClick={incrementCount}>В корзину</button>
         <button className="product-card__details-button">Подробнее</button>
       </div>
     </div>
