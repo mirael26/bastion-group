@@ -1,10 +1,8 @@
 import { CartAction, CartState } from "../../types";
 import { ActionType } from "../action";
 
-import { productsInCartMocks } from "../../mocks";
-
 const initialState: CartState = {
-  productsInCart: productsInCartMocks,
+  productsInCart: [],
 };
 
 export const cartReducer = (state = initialState, action: CartAction): CartState => {

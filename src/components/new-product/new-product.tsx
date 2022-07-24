@@ -19,8 +19,7 @@ const NewProduct = (): JSX.Element => {
   const [errors, setErrors] = useState({id: null, type: null, title: null, price: null, gost: null, image: null});
   const imageInput = useRef(null);
 
-  // const productTypes = useSelector((state: RootState) => state.data.productTypes);
-  const productTypes = [{name: 'Опорные конструкции', id: 1}, {name: 'Детали крепления', id: 2}, {name: 'Узлы трубопроводов', id: 3}];
+  const productTypes = useSelector((state: RootState) => state.data.productTypes);
   const products = useSelector((state: RootState) => state.data.products);
   const dispatch = useDispatch();
 

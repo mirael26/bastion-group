@@ -1,9 +1,8 @@
-import { productsMocks } from "../../mocks";
 import { DataAction, DataState } from "../../types";
 import { ActionType } from "../action";
 
 const initialState: DataState = {
-  products: productsMocks,
+  products: [],
   productTypes: [],
 };
 
