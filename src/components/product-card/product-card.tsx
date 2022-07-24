@@ -15,7 +15,15 @@ const ProductCard = ({product}: ProductCardProps): JSX.Element => {
 
   const incrementCount = () => {
     if (!count) {
-      dispatch(ActionCreator.addProductToCart({...product, count: 1}));
+      dispatch(ActionCreator.addProductToCart({
+        id: product.id,
+        title: product.title,
+        type: product.type,
+        price: product.price,
+        gost: product.gost,
+        image: product.image,
+        count: 1
+      }));
     } else {
       dispatch(ActionCreator.changeCountInCart({id: product.id, count: ++count}));
     }
