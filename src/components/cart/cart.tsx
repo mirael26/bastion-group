@@ -12,7 +12,6 @@ const Cart = (): JSX.Element => {
   const productsInCart = useSelector((state: RootState) => state.cart.productsInCart);
   const dispatch = useDispatch();
 
-
   const sum = productsInCart.reduce((accumulator, product) => accumulator + product.count * product.price, 0);
 
   return (

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { ActionCreator } from "../../store/action";
 import { RootState } from "../../store/store";
-import { RegExpTest } from "../consts";
+import { RegExpTest } from "../../consts";
 
 const ErrorMessages = {
   ID_EXIST: 'Такой ID уже существует',
@@ -70,7 +70,6 @@ const NewProductType = (): JSX.Element => {
     const isNameValid = validateName();
     
     if (isIdValid && isNameValid) {
-      console.log('Проверка пройдена')
       dispatch(ActionCreator.addProductType({id: +idValue, name: nameValue}));
       resetInputs();
     }
