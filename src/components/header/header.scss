@@ -176,10 +176,3 @@
   background: url('../../img/favorite-icon.svg') no-repeat center top 2px;
   background-size:  19px auto;
 }
-
-.header__cart {
-  @include text;
-  padding-top: 29px;
-  background: url('../../img/cart-icon.svg') no-repeat center top 3px;
-  background-size: 19px auto;
-}

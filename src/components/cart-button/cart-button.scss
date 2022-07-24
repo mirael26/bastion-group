@@ -1,0 +1,26 @@
+.cart-button__icon {
+  @include text;
+  position: relative;
+  padding-top: 29px;
+  background: url('../../img/cart-icon.svg') no-repeat center top 3px;
+  background-size: 19px auto;
+}
+
+.cart-button__count {
+  @include small-text;
+  position: absolute;
+  top: 1px;
+  right: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 11px;
+  height: 11px;
+  font-weight: 600;
+  line-height: 11px;
+  color: #fff;
+  background-color: $red;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #fff;
+  // z-index: 1;
+}

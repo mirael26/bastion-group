@@ -1,6 +1,8 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 
+import CartButton from "../cart-button/cart-button";
+
 const Header = ():JSX.Element => {
   return (
     <div className="header">
@@ -39,7 +41,7 @@ const Header = ():JSX.Element => {
           </div>
 
           <button className="header__favorite">Избранное</button>
-          <button className="header__cart">Корзина</button>
+          <CartButton />
         </div>
       </div>
     </div>
